@@ -59,3 +59,9 @@ venv/
 *.tmp
 *.temp
 *.swp
+
+# ===============================
+# Ignore .gitignore files in subfolders
+# ===============================
+**/.gitignore
+!/.gitignore
