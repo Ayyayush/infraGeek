@@ -1,0 +1,5 @@
+services : 
+  img :  configs:
+  build :configs:
+  container_name: my_container
+  ports:3000 :3000
