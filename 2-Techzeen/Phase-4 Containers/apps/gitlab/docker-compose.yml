@@ -1,7 +1,8 @@
 version: "3.8"
 
 services:
-  gitlab:
+
+  gitlab-server:
     image: gitlab/gitlab-ce:latest
     container_name: gitlab
     restart: always
@@ -13,9 +14,28 @@ services:
 
     environment:
       GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://localhost:8000'
+
+        gitlab_rails['initial_root_password'] = 'A@ayush1232003'
+
         puma['worker_processes'] = 0
 
     volumes:
       - ./config:/etc/gitlab
       - ./logs:/var/log/gitlab
       - ./data:/var/opt/gitlab
+
+
+  gitlab-runner:
+    image: gitlab/gitlab-runner:latest
+    container_name: my-gitlab-runner
+    restart: always
+
+    depends_on:
+      - gitlab-server
+
+    volumes:
+      - ./gitlab-runner/config:/etc/gitlab-runner
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    privileged: true

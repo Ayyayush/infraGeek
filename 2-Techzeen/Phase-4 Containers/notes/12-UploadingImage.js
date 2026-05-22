@@ -1,5 +1,7 @@
 /**
  * Session: Uploading Docker Image to Docker Hub
+ * 
+ * 
  *
  * 1) Docker Hub vs Docker Desktop
  *
