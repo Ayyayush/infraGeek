@@ -71,10 +71,11 @@
  * 
  * ! Update System Packages
  * Ubuntu install hone ke baad terminal open karo.
- * 
  * System packages update karne ke liye command run karo:
- * 
+ *
  * sudo apt update && sudo apt upgrade -y
+ * password for ubuntu on local system is #Ayush2003
+ * 
  * 
  * Explanation:
  * sudo → admin privileges
