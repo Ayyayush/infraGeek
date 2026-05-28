@@ -68,3 +68,7 @@ venv/
 
 
 **/keys/
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars

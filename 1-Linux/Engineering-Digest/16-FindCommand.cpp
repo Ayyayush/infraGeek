@@ -11,7 +11,9 @@
  *
  * find [path] [options] [expression]
  *
+ *
  * Example:
+ *
  * find .
  *
  * - current directory aur uske andar ki saari files/directories show karega
@@ -22,8 +24,44 @@
  * find . -name "a.txt"
  *
  * - current directory se recursively a.txt search karega
- * Example Output:
- * ./Documents/a.txt
+ *
+ *
+ * ! WILDCARD PATTERNS
+ *
+ * -name wildcard patterns accept karta hai
+ *
+ *
+ * *
+ * - zero ya multiple characters match karta hai
+ *
+ *
+ * ?
+ * - exactly one character match karta hai
+ *
+ *
+ * []
+ * - enclosed characters me se koi ek match karta hai
+ *
+ *
+ * [!]
+ * - agar first character ho toh negation karta hai
+ *
+ *
+ * Examples:
+ *
+ * find . -name "*.txt"
+ * - saari txt files
+ *
+ *
+ * find . -name "a?.txt"
+ * - a1.txt
+ * - ab.txt
+ *
+ *
+ * find . -name "[abc].txt"
+ * - a.txt
+ * - b.txt
+ * - c.txt
  *
  *
  * ! CASE INSENSITIVE SEARCH
@@ -31,6 +69,16 @@
  * find . -iname "hello.txt"
  *
  * - uppercase/lowercase ignore karega
+ *
+ *
+ * find . -name "*resume*"
+ *
+ * - case sensitive
+ *
+ *
+ * find . -iname "*Resume*"
+ *
+ * - case insensitive
  *
  *
  * Example:
@@ -42,82 +90,198 @@
  * - sab match ho jayenge
  *
  *
- * ! SEARCH ONLY DIRECTORIES
+ * ! FIND FILES BASED ON TYPE
  *
- * find . -type d
+ * cd abc
+ * ls
+ * touch a b c d
  *
- * - sirf directories show karega
  *
+ * find
  *
- * ! SEARCH ONLY FILES
+ * - current directory ki saari files/directories show hongi
+ *
  *
  * find . -type f
  *
  * - sirf files show karega
  *
  *
- * ! SEARCH INSIDE SPECIFIC DIRECTORY
+ * find . -type d
  *
- * find Documents/ -name "notes.txt"
- *
- * - sirf Documents folder ke andar search karega
+ * - sirf directories show karega
  *
  *
- * ! SEARCH USING WILDCARDS
+ * find . -type f -iname "*journal*"
  *
- * find . -name "*.txt"
+ * - journal naam wali files search karega
  *
- * - saari .txt files search karega
+ *
+ * ! FIND FILES BASED ON SIZE
+ *
+ * find /path -size 100M
+ *
+ * - exactly 100MB
+ *
+ *
+ * find /path -size +100M
+ *
+ * - 100MB se badi files
+ *
+ *
+ * find /path -size -50k
+ *
+ * - 50KB se chhoti files
+ *
+ *
+ * ! FIND FILES BASED ON TIME
+ *
+ * ! modification time
+ *
+ * find /path -mtime -7
+ * - last 7 days me modified files
+ *
+ *
+ * find /path -mtime +7
+ * - 7 days se purani modified files
+ *
+ *
+ * find /path -mtime 7
+ * - exactly 7 days old modified files
+ *
+ *
+ * ! other time options
+ *
+ * -mmin
+ * - modified minutes
+ *
+ * -amin
+ * - access minutes
+ *
+ * -atime
+ * - access time
+ *
+ * -cmin
+ * - change minutes
+ *
+ * -ctime
+ * - inode/status change time
  *
  *
  * Example:
  *
- * abc.txt
- * notes.txt
- * hello.txt
+ * find . -size +200M -atime -30
+ *
+ * - 200MB se badi aur last 30 days me accessed files
  *
  *
- * ! SEARCH EMPTY FILES
+ * ! COMBINING WITH LOGICAL OPERATORS
+ *
+ * find /path -type f -name "*.txt" -and -size +1M
+ *
+ * - txt files jo 1MB se badi hain
+ *
+ *
+ * find /path \( -name "*.txt" -or -name "*.pdf" \)
+ *
+ * - txt ya pdf files
+ *
+ *
+ * find /path ! -name "*.txt"
+ *
+ * - txt files ko exclude karega
+ *
+ *
+ * find . \( -size +200M -and -atime +30 \) -or -size +1G
+ *
+ * - ya toh 200MB+ aur 30 din purani
+ * - ya 1GB se badi
+ *
+ *
+ * find . \( -size +200M -and -atime +30 \) -not -size +1G
+ *
+ * - 200MB+ aur 30 din purani
+ * - but 1GB se badi nahi
+ *
+ *
+ * ! LOCATE EMPTY FILES/DIRECTORIES
  *
  * find . -empty
  *
  * - empty files/directories search karega
  *
  *
- * ! SEARCH BY SIZE
+ * find . -type f -empty
  *
- * find . -size +10M
- *
- * - 10MB se badi files search karega
+ * - sirf empty files
  *
  *
- * find . -size -1M
+ * find . -type d -empty
  *
- * - 1MB se chhoti files search karega
- *
- *
- * ! SEARCH BY PERMISSION
- *
- * find . -perm 777
- *
- * - specific permission wali files search karega
+ * - sirf empty directories
  *
  *
- * ! SEARCH AND DELETE
- *
- * find . -name "*.tmp" -delete
- *
- * - saari .tmp files delete kar dega
- *
- *
- * ! EXECUTE COMMAND ON FOUND FILES
+ * ! EXECUTE COMMANDS USING -exec
  *
  * find . -name "*.txt" -exec ls -lh {} \;
  *
+ *
  * Explanation:
  *
- * - {} found file ko represent karta hai
- * - \; command terminate karta hai
+ * -exec
+ * - found file pe command run karta hai
+ *
+ *
+ * {}
+ * - found file/directory ka placeholder
+ *
+ *
+ * \;
+ * - command termination symbol
+ *
+ *
+ * ! DELETE USING -exec
+ *
+ * find . -empty -exec rm -r {} \;
+ *
+ * - empty files/directories remove karega
+ *
+ *
+ * ! USING file COMMAND WITH find
+ *
+ * find . -exec file {} \;
+ *
+ * - har found file ka type batayega
+ *
+ *
+ * ! USING echo WITH find
+ *
+ * find . -exec echo {} \;
+ *
+ * - found file names print karega
+ *
+ *
+ * ! xargs
+ *
+ * find . | xargs echo
+ *
+ * - find ka output xargs ko input banega
+ *
+ *
+ * ! DIFFERENCE BETWEEN -exec AND xargs
+ *
+ * -exec
+ * - har file pe individually command run karta hai
+ *
+ *
+ * xargs
+ * - multiple arguments ek saath pass karta hai
+ * - usually faster hota hai
+ *
+ *
+ * ! LIMITATION OF xargs
+ *
+ * - spaces/newlines wali filenames me issues ho sakte hain
  *
  *
  * ! FIND WITH GREP
@@ -133,8 +297,23 @@
  * find
  * - filesystem search karta hai
  *
+ *
  * grep
  * - file content search karta hai
+ *
+ *
+ * ! SEARCH BY PERMISSION
+ *
+ * find . -perm 777
+ *
+ * - specific permissions wali files search karega
+ *
+ *
+ * ! SEARCH AND DELETE
+ *
+ * find . -name "*.tmp" -delete
+ *
+ * - saari tmp files delete karega
  *
  *
  * ! IMPORTANT NOTES
@@ -142,17 +321,21 @@
  * -name
  * - case sensitive search
  *
+ *
  * -iname
  * - case insensitive search
+ *
  *
  * -type f
  * - files
  *
+ *
  * -type d
  * - directories
  *
+ *
  * -delete
- * - found files delete karta hai
+ * - matched files delete karta hai
  *
  *
  * ! SUMMARY OF THIS LECTURE
@@ -160,24 +343,28 @@
  * Commands learned:
  *
  * find .
- * find . -name "a.txt"
+ * find . -name "*.txt"
  * find . -iname "hello.txt"
  * find . -type f
  * find . -type d
- * find . -name "*.txt"
+ * find . -size +100M
+ * find . -mtime -7
  * find . -empty
- * find . -size +10M
- * find . -name "*.tmp" -delete
+ * find . -exec ls -lh {} \;
+ * find . | xargs echo
  *
  *
  * Concepts learned:
+ *
  * - recursive searching
- * - wildcard searching
+ * - wildcard matching
  * - file vs directory search
- * - case sensitive search
- * - case insensitive search
- * - search by size
- * - search and delete
+ * - case sensitive vs insensitive search
+ * - searching by size
+ * - searching by time
+ * - logical operators
+ * - executing commands using -exec
+ * - xargs usage
  *
  *
  * ! INTERVIEW QUESTIONS
@@ -187,13 +374,7 @@
  * - Used to search files and directories.
  *
  *
- * 2) Syntax of find command?
- * Answer:
- *
- * find [path] [options] [expression]
- *
- *
- * 3) What does:
+ * 2) What does:
  * find . -type f
  * do?
  *
@@ -201,15 +382,7 @@
  * - Searches only files.
  *
  *
- * 4) What does:
- * find . -type d
- * do?
- *
- * Answer:
- * - Searches only directories.
- *
- *
- * 5) Difference between -name and -iname ?
+ * 3) Difference between -name and -iname ?
  * Answer:
  *
  * -name
@@ -219,15 +392,7 @@
  * - case insensitive
  *
  *
- * 6) What does:
- * find . -name "*.txt"
- * do?
- *
- * Answer:
- * - Searches all .txt files.
- *
- *
- * 7) What does:
+ * 4) What does:
  * find . -empty
  * do?
  *
@@ -235,26 +400,43 @@
  * - Searches empty files/directories.
  *
  *
- * 8) What does:
+ * 5) What does:
+ * find . -mtime -7
+ * do?
+ *
+ * Answer:
+ * - Finds files modified within last 7 days.
+ *
+ *
+ * 6) What is the purpose of -exec ?
+ * Answer:
+ * - Executes command on matched files.
+ *
+ *
+ * 7) What does {} represent in -exec ?
+ * Answer:
+ * - Placeholder for found file/directory.
+ *
+ *
+ * 8) Difference between find and grep?
+ * Answer:
+ *
+ * - find searches filesystem
+ * - grep searches content
+ *
+ *
+ * 9) Difference between -exec and xargs ?
+ * Answer:
+ *
+ * -exec runs command individually
+ * - xargs passes multiple arguments together
+ *
+ *
+ * 10) What does:
  * find . -delete
  * do?
  *
  * Answer:
  * - Deletes matched files/directories.
- *
- *
- * 9) Difference between find and grep?
- * Answer:
- *
- * - find searches files/directories
- * - grep searches text/content
- *
- *
- * 10) What does:
- * find . -exec
- * do?
- *
- * Answer:
- * - Executes command on found files.
  *
  */
