@@ -11,6 +11,8 @@
 #   }
 # }  
 
+
+#  condtional expressions and locals 
 provider "aws" {
   region = var.aws_region
 }
@@ -26,11 +28,15 @@ data "aws_ami" "amazon_linux" {
   }
 }
 
+locals {
+  name_tag = var.instance_type == "t3.micro" ? "Micro Instance" : "Standard Instance"
+}
+
 resource "aws_instance" "my_ec2" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type
 
   tags = {
-    Name = var.instance_name
+    Name = local.name_tag
   }
 }
