@@ -9,3 +9,8 @@ variable "instance_type" {
 variable "instance_name" {
   default = "ayushTerraform"
 }
+
+#  depends on
+variable "bucket_name" {
+  default = "my-bucket-terraform"
+}
