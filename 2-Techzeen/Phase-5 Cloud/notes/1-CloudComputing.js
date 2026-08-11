@@ -14,7 +14,7 @@
  * bina apna physical hardware kharide.
  *
  * Cloud providers:
- * - Amazon Web Services (AWS)
+ * - Amazon Web ervices (AWS)
  * - Microsoft Azure
  * - Google Cloud Platform (GCP)
  *
@@ -31,7 +31,6 @@
  * ---------------------------------------------------------
  * CLOUD INFRASTRUCTURE
  * ---------------------------------------------------------
- *
  * Cloud infrastructure physical hardware par based hoti hai,
  * lekin user ko ye:
  * - Virtualized servers ke form me milti hai
@@ -49,9 +48,8 @@
  *
  *
  * ---------------------------------------------------------
- * TRADITIONAL INFRASTRUCTURE (ON-PREMISE)
+ * ! TRADITIONAL INFRASTRUCTURE (ON-PREMISE)
  * ---------------------------------------------------------
- *
  * Traditional setup me:
  * - Physical servers khud kharidne padte hain
  * - Data center manage karna padta hai
@@ -64,7 +62,7 @@
  *
  *
  * ---------------------------------------------------------
- * CLOUD vs TRADITIONAL (KEY COMPARISON)
+ * ! CLOUD vs TRADITIONAL (KEY COMPARISON)
  * ---------------------------------------------------------
  *
  * 1) SCALABILITY
@@ -115,9 +113,8 @@
  *
  *
  * ---------------------------------------------------------
- * TYPES OF CLOUD
+ * ! TYPES OF CLOUD
  * ---------------------------------------------------------
- *
  * 1) PUBLIC CLOUD
  *    - Infrastructure cloud provider ki hoti hai
  *    - Resources multiple customers share karte hain

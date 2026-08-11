@@ -21,7 +21,6 @@
  * ---------------------------------------------------------
  * ZIP extract karo.
  *
- *
  * Extract karne ke baad:
  * → terraform.exe file milegi
  *
@@ -30,10 +29,7 @@
  * ! STEP 3 -> CREATE TERRAFORM FOLDER
  * ---------------------------------------------------------
  * Example:
- *
  * C:\terraform
- *
- *
  * terraform.exe ko:
  *
  * → Is folder me move kar do
@@ -60,7 +56,6 @@
  * ! WHY ADD PATH VARIABLE?
  * ---------------------------------------------------------
  * Taaki:
- *
  * → Terraform command
  *   kisi bhi terminal location se run ho sake
  *
@@ -69,7 +64,6 @@
  * ! STEP 5 -> RESTART TERMINAL
  * ---------------------------------------------------------
  * CMD ya PowerShell:
- *
  * → Close karo
  * → Dubara open karo
  *
@@ -78,7 +72,6 @@
  * ! VERIFICATION OF INSTALLATION
  * ---------------------------------------------------------
  * Command:
- *
  * terraform -v
  *
  *
@@ -111,11 +104,8 @@
  * ! IMPORTANT NOTE
  * ---------------------------------------------------------
  * Agar:
- *
  * terraform is not recognized
- *
  * error aaye:
- *
  * → Path variable properly add nahi hui
  *
  *
@@ -125,7 +115,6 @@
  * Q1) How do you verify Terraform installation?
  * Ans:
  * Using:
- *
  * terraform -v
  *
  *

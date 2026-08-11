@@ -87,7 +87,6 @@
  * ! STEP 6: CREATE BUCKET
  * ---------------------------------------------------------
  * "Create bucket" par click
- *
  * Bucket successfully create ho gaya ✅
  *
  *
@@ -150,13 +149,11 @@
  * ! INTERVIEW TIP
  * ---------------------------------------------------------
  * Bucket public ≠ Object public
- *
  * Dono ko alag-alag permission chahiye hoti hai.
  *
  *
  * ! SHORT SUMMARY
  * ---------------------------------------------------------
- *
  * - S3 bucket create ki
  * - Bucket name globally unique hota hai
  * - Bucket public banaya

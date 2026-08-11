@@ -1,12 +1,10 @@
 /**
  * ! Connecting EC2 Instance using SSH Protocol
- *
  * Ab hum EC2 instance ko SSH protocol ke through connect karenge.
  *
  * ------------------------------------------------------------
  * ! What is SSH?
  * ------------------------------------------------------------
- *
  * SSH (Secure Shell) ek protocol hai
  * jo unsecured network par secure communication ke liye use hota hai.
  *
@@ -15,19 +13,17 @@
  * - Remote commands execute karna
  * - Secure login
  *
- * Always SSH use karna chahiye kyunki:
+ * ? Always SSH use karna chahiye kyunki:
  * - Data encrypted hota hai
  * - Secure authentication hoti hai
  *
  * ------------------------------------------------------------
  * ! Key Pair Usage
  * ------------------------------------------------------------
- *
  * Jab humne EC2 instance create kiya tha,
  * tab ek key pair file generate hui thi:
  *
  * my-web-server-key.pem
- *
  * Isi key pair ka use karke hum SSH login karte hain.
  *
  * Ye command terminal / PowerShell me run karte hain.
@@ -35,7 +31,6 @@
  * ------------------------------------------------------------
  * ! Incorrect SSH Command
  * ------------------------------------------------------------
- *
  * ssh -i "C:\Users\Aayu0\Downloads\Devops\my-web-server-key.pem" ec2-user
  *
  * Ye command incomplete hai kyunki:
@@ -57,12 +52,12 @@
  * Humne Amazon Linux choose kiya tha,
  * isliye username ec2-user hai.
  *
+ * 
+ * 
  * ------------------------------------------------------------
  * ! First Time SSH Warning
  * ------------------------------------------------------------
- *
  * "The authenticity of host can't be established"
- *
  * Ye ek normal SSH security warning hai.
  * SSH server fingerprint verify karta hai.
  *
@@ -76,7 +71,6 @@
  * ------------------------------------------------------------
  * ! Successful Login
  * ------------------------------------------------------------
- *
  * Amazon Linux 2023 ka banner show hona
  * matlab SSH login successful ho gaya.
  *
@@ -90,16 +84,15 @@
  * ------------------------------------------------------------
  * ! Remote Access Confirmation
  * ------------------------------------------------------------
- *
  * Ab mujhe koi bhi kaam karna ho:
  * - Software install karna
  * - Server configure karna
  * - Commands run karna
  *
  * Sab kuch main isi terminal se kar sakta hoon.
- *
  * Isse hume full remote access mil gaya hai.
  *
+ * 
  * ------------------------------------------------------------
  * ! Exit from EC2 Instance
  * ------------------------------------------------------------
@@ -109,9 +102,9 @@
  *        OR
  * - exit command run karo
  *
+ * 
  * ------------------------------------------------------------
  * ! Interview Line
  * ------------------------------------------------------------
- *
  * SSH provides secure remote access to EC2 instances using key-based authentication.
  */

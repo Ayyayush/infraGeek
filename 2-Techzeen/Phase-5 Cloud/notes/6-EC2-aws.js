@@ -23,22 +23,18 @@
  *
  *
  * ---------------------------------------------------------
- * WHY DO WE USE EC2?
+ * ! WHY DO WE USE EC2?
  * ---------------------------------------------------------
- *
  * EC2 use karte hain kyunki:
- *
  * - Websites aur web applications host karne ke liye
- * - Backend servers run karne ke liye
- *   (Node.js, Django, Spring Boot, etc.)
+ * - Backend servers run karne ke liye .. (Node.js, Django, Spring Boot, etc.)
  * - Remote development / testing ke liye
  * - Long-running servers ke liye
  *
  *
  * ---------------------------------------------------------
- * COMMON USE CASES OF EC2
+ * ! COMMON USE CASES OF EC2
  * ---------------------------------------------------------
- *
  * 1) WEB SERVER
  *    - Nginx / Apache ke saath website hosting
  *
@@ -56,10 +52,10 @@
  *    - Background processing
  *
  *
+ * 
  * ---------------------------------------------------------
- * RELATION WITH OTHER AWS COMPONENTS
+ * ! RELATION WITH OTHER AWS COMPONENTS
  * ---------------------------------------------------------
- *
  * EC2 akela kaam nahi karta,
  * ye multiple AWS components ke saath connected hota hai.
  *
@@ -101,10 +97,10 @@
  * - Baaki sab block
  *
  *
+ * 
  * ---------------------------------------------------------
- * EC2 + EBS RELATION (IMPORTANT)
+ *! EC2 + EBS RELATION (IMPORTANT)
  * ---------------------------------------------------------
- *
  * - EC2 = Computer
  * - EBS = Hard Disk
  *
@@ -119,17 +115,16 @@
  * ---------------------------------------------------------
  * INTERVIEW FRIENDLY ANSWER
  * ---------------------------------------------------------
- *
  * EC2 is a virtual server provided by AWS that allows
  * users to run applications in the cloud. It offers
  * scalable compute capacity and works with services
  * like EBS, Security Groups, and IP addressing.
  *
  *
+ * 
  * ---------------------------------------------------------
  * SHORT SUMMARY
  * ---------------------------------------------------------
- *
  * - EC2 = Virtual machine in AWS
  * - Used for hosting apps & servers
  * - Works with EBS, IPs, Security Groups

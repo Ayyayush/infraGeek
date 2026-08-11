@@ -1,6 +1,6 @@
 /**
  * =========================================================
- * AWS CLI (Command Line Interface)
+ * ! AWS CLI (Command Line Interface)
  * =========================================================
  *
  * WHAT IS AWS CLI?
@@ -16,9 +16,8 @@
  *
  *
  * ---------------------------------------------------------
- * WHY AWS CLI?
+ * ! WHY AWS CLI?
  * ---------------------------------------------------------
- *
  * - Fast automation
  * - Script likh sakte hain (DevOps me useful)
  * - CI/CD pipelines me use hota hai
@@ -26,9 +25,8 @@
  *
  *
  * ---------------------------------------------------------
- * EXAMPLE COMMANDS
+ * ! EXAMPLE COMMANDS
  * ---------------------------------------------------------
- *
  * EC2 instances list karne ke liye:
  * aws ec2 describe-instances
  *
@@ -49,14 +47,12 @@
  *
  *
  * 🔹 LINUX
- *
  * curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
  * unzip awscliv2.zip
  * sudo ./aws/install
  *
  *
  * 🔹 MAC
- *
  * brew install awscli
  *
  *
@@ -65,11 +61,8 @@
  * ---------------------------------------------------------
  *
  * Install ke baad:
- *
  * aws configure
- *
  * Ye 4 cheeze puchega:
- *
  * 1) AWS Access Key ID
  * 2) AWS Secret Access Key
  * 3) Default region (e.g., ap-south-1)
@@ -85,15 +78,13 @@
  * ---------------------------------------------------------
  * AWS CLI WORKFLOW
  * ---------------------------------------------------------
- *
  * Step 1: Install
  * Step 2: aws configure
  * Step 3: Run commands
  *
  *
  * ---------------------------------------------------------
- * INTERVIEW FRIENDLY ANSWER
- * ---------------------------------------------------------
+ * INTERVIEW FRIENDLY ANSWER------------------------------------------------------
  *
  * AWS CLI is a command-line tool that allows users
  * to manage AWS services programmatically instead of

@@ -41,7 +41,6 @@
  * ! WHAT IS REVERSE PROXY?
  * ---------------------------------------------------------
  * Reverse proxy ek middle server hota hai:
- *
  * Client → Nginx → Backend
  *
  * Client directly backend ko hit nahi karta.
@@ -68,18 +67,17 @@
  *
  * ! INSTALL NGINX (AMAZON LINUX)
  * ---------------------------------------------------------
- *
  * Apache stop karo (agar running ho):
  * sudo systemctl stop httpd
  *
  * Install:
- * sudo dnf install nginx -y
+ * ? sudo dnf install nginx -y
  *
  * Start:
- * sudo systemctl start nginx
+ * ? sudo systemctl start nginx
  *
  * Enable on boot:
- * sudo systemctl enable nginx
+ * ? sudo systemctl enable nginx
  *
  * Check status:
  * sudo systemctl status nginx

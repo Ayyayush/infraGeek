@@ -13,12 +13,10 @@
  * 
  * ! Empty file create karna
  * touch hosts
- * 
  * touch command se empty file create ho jati h
  * 
  * ! File create hui ya nhi kaise check kare
  * ls
- * 
  * ls command current directory ki saari files dikha deta h
  * 
  * ! File open karna
@@ -48,7 +46,6 @@
  * 
  * ! Ansible command run karna
  * ansible all
- * 
  * all ka matlab:
  * inventory file ke sab hosts pe command run hogi
  * 

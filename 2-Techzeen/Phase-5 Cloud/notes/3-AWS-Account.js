@@ -8,9 +8,8 @@
  *
  *
  * ---------------------------------------------------------
- * STEPS TO CREATE AWS ACCOUNT
+ * ! STEPS TO CREATE AWS ACCOUNT
  * ---------------------------------------------------------
- *
  * STEP 1: AWS Website par jao
  * - https://aws.amazon.com
  * - "Create an AWS Account" par click karo
@@ -56,7 +55,6 @@
  * ---------------------------------------------------------
  * AWS FREE TIER (VERY IMPORTANT)
  * ---------------------------------------------------------
- *
  * AWS Free Tier:
  * - 12 months valid hota hai
  * - Limited usage free hoti hai

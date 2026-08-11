@@ -1,13 +1,11 @@
 /**
  * ! Hosting Static Website on EC2 using Apache + SCP
- *
  * Ab hum Apache web server ka use karke
  * EC2 instance par static website host karenge.
  *
  * ------------------------------------------------------------
  * ! Step 1: Start Apache on EC2
  * ------------------------------------------------------------
- *
  * EC2 terminal (SSH ke through login hone ke baad):
  *
  * sudo systemctl start httpd
@@ -20,7 +18,6 @@
  * ------------------------------------------------------------
  * ! Step 2: Open a Separate Local Terminal
  * ------------------------------------------------------------
- *
  * Ab ek naya terminal / PowerShell open karo
  * (VS Code, CMD, ya PowerShell – kahin se bhi).
  *
@@ -30,7 +27,6 @@
  * ------------------------------------------------------------
  * ! SCP Command (File Transfer)
  * ------------------------------------------------------------
- *
  * Command:
  *
  * scp -i "C:\Users\Aayu0\Downloads\Devops\my-web-server-key.pem" \
@@ -40,13 +36,12 @@
  * ------------------------------------------------------------
  * ! What is SCP?
  * ------------------------------------------------------------
- *
  * SCP = Secure Copy Protocol
- *
  * Ye SSH ka hi part hota hai
  * aur secure tarike se files transfer karta hai
  * local machine se remote server par.
  *
+ * 
  * ------------------------------------------------------------
  * ! Command Breakdown (IMPORTANT)
  * ------------------------------------------------------------

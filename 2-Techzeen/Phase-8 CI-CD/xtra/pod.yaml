@@ -1,0 +1,261 @@
+
+# =====================================================
+# Kubernetes Pod Configuration
+# =====================================================
+
+apiVersion: v1                  # Kubernetes API Version
+
+kind: Pod                       # Create a Pod
+
+metadata:                       # Pod Information
+  name: nginx-pod               # Pod Name
+  labels:                       # Pod Labels
+    app: nginx
+
+spec:                           # Pod Specification
+  containers:                   # Container List
+
+  - name: nginx-container       # Container Name
+    image: nginx:latest         # Docker Image
+    ports:
+      - containerPort: 80       # Container Port
+
+
+
+# =====================================================
+# Kubernetes Deployment Configuration
+# =====================================================
+
+apiVersion: apps/v1                 # Deployment API Version
+
+kind: Deployment                    # Create Deployment
+
+metadata:                           # Deployment Information
+  name: nginx-deployment            # Deployment Name
+
+spec:                               # Deployment Specification
+  replicas: 3                       # Number of Pod Replicas
+
+  selector:                         # Select Matching Pods
+    matchLabels:
+      app: nginx
+
+  template:                         # Pod Template
+
+    metadata:
+      labels:
+        app: nginx
+
+    spec:
+      containers:
+
+      - name: nginx-container       # Container Name
+        image: nginx:latest         # Docker Image
+
+        ports:
+        - containerPort: 80         # Application Port
+
+
+    
+# =====================================================
+# Kubernetes Service Configuration
+# =====================================================
+
+apiVersion: v1                     # Kubernetes API Version
+
+kind: Service                      # Create Service
+
+metadata:                          # Service Information
+  name: nginx-service              # Service Name
+
+spec:                              # Service Specification
+
+  selector:                        # Select Matching Pods
+    app: nginx
+
+  type: NodePort                   # Service Type
+
+  ports:
+
+  - protocol: TCP                  # Communication Protocol
+    port: 80                       # Service Port
+    targetPort: 80                 # Pod Container Port
+    nodePort: 30080                # External Node Port
+
+
+
+# =====================================================
+# Kubernetes ConfigMap
+# =====================================================
+
+apiVersion: v1                  # Kubernetes API Version
+
+kind: ConfigMap                 # Create ConfigMap
+
+metadata:
+  name: app-config              # ConfigMap Name
+
+data:
+  APP_NAME: MyApp               # Application Name
+  APP_ENV: Production           # Environment
+  DB_HOST: mysql-service        # Database Host
+
+
+
+# =====================================================
+# Kubernetes Secret
+# =====================================================
+
+apiVersion: v1                  # Kubernetes API Version
+
+kind: Secret                    # Create Secret
+
+metadata:
+  name: db-secret               # Secret Name
+
+type: Opaque                    # Generic Secret
+
+stringData:
+  DB_USERNAME: root             # Database Username
+  DB_PASSWORD: root123          # Database Password
+
+
+
+
+# =====================================================
+# Kubernetes Persistent Volume Claim
+# =====================================================
+
+apiVersion: v1                  # Kubernetes API Version
+
+kind: PersistentVolumeClaim     # Create PVC
+
+metadata:
+  name: mysql-pvc               # PVC Name
+
+spec:
+  accessModes:
+    - ReadWriteOnce             # Single Node Read/Write
+
+  resources:
+    requests:
+      storage: 2Gi              # Requested Storage
+
+  storageClassName: standard    # Storage Class
+
+
+
+# =====================================================
+# Kubernetes Network Policy
+# =====================================================
+
+apiVersion: networking.k8s.io/v1      # Kubernetes API Version
+
+kind: NetworkPolicy                   # Create Network Policy
+
+metadata:
+  name: allow-nginx                   # Policy Name
+
+spec:
+  podSelector:                        # Apply to Matching Pods
+    matchLabels:
+      app: nginx
+
+  policyTypes:
+    - Ingress                         # Control Incoming Traffic
+
+  ingress:
+    - from:
+      - podSelector:
+          matchLabels:
+            app: frontend             # Allow Only Frontend Pods
+
+
+
+# =====================================================
+# Kubernetes Deployment Update
+# =====================================================
+
+apiVersion: apps/v1                 # Deployment API Version
+
+kind: Deployment                    # Create Deployment
+
+metadata:
+  name: nginx-deployment            # Deployment Name
+
+spec:
+  replicas: 3                       # Number of Replicas
+
+  selector:
+    matchLabels:
+      app: nginx
+
+  template:
+
+    metadata:
+      labels:
+        app: nginx
+
+    spec:
+      containers:
+
+      - name: nginx-container       # Container Name
+        image: nginx:1.27           # Updated Image Version
+
+        ports:
+        - containerPort: 80         # Container Port
+
+
+
+
+# =====================================================
+# Complete Kubernetes Deployment + Service
+# =====================================================
+
+apiVersion: apps/v1                   # Deployment API Version
+
+kind: Deployment                      # Create Deployment
+
+metadata:
+  name: node-app                      # Deployment Name
+
+spec:
+  replicas: 3                         # Number of Pod Replicas
+
+  selector:
+    matchLabels:
+      app: node-app
+
+  template:
+
+    metadata:
+      labels:
+        app: node-app
+
+    spec:
+      containers:
+
+      - name: node-container          # Container Name
+        image: ayyayush/my-node-app:latest   # Docker Image
+
+        ports:
+        - containerPort: 3000         # Application Port
+
+---
+apiVersion: v1                        # Service API Version
+
+kind: Service                         # Create Service
+
+metadata:
+  name: node-service                  # Service Name
+
+spec:
+  selector:
+    app: node-app
+
+  type: NodePort                      # External Access
+
+  ports:
+  - port: 3000                        # Service Port
+    targetPort: 3000                  # Container Port
+    nodePort: 30080                   # External Node Port

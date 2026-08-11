@@ -11,7 +11,7 @@
  * used to automate infrastructure provisioning.
  *
  * ! what is infrastructure  as code 
- * it is a way to manage and rivison infrstrcutree using code 
+ * it is a way to manage and provision infrstrcutree using code 
  * you wrtite code  like  .tf files instead of 
  * clicking on aws  console 
  * it makes infrastrcutrue consistent reptable and verisopn controlled 
@@ -70,26 +70,21 @@
  * ! WHAT IS IaC?
  * ---------------------------------------------------------
  * IaC =
- *
  * Infrastructure as Code
  *
  *
  * Matlab:
- *
  * → Infrastructure ko manually create nahi karte
  * → Code likh ke automate karte hain
  *
  *
  * Example:
- *
  * Instead of:
  * → AWS console me manually click karna
  *
  *
  * We write:
- *
  * Terraform code
- *
  *
  * Terraform:
  * → Automatically resources create kar deta hai
@@ -124,19 +119,12 @@
  * ! TERRAFORM CONFIGURATION LANGUAGE
  * ---------------------------------------------------------
  * Terraform:
- *
  * HCL
- *
  * use karta hai.
  *
  *
- * HCL =
- *
- * HashiCorp Configuration Language
- *
- *
- * Ye:
- * → Human-readable language hoti hai
+ * HCL =  HashiCorp Configuration Language
+ * Ye:  → Human-readable language hoti hai
  *
  *
  * ---------------------------------------------------------
@@ -227,14 +215,11 @@
  * ! TERRAFORM STATE FILE
  * ---------------------------------------------------------
  * Terraform:
- *
  * terraform.tfstate
- *
  * file maintain karta hai.
  *
  *
- * Isme:
- * → Current infrastructure state store hoti hai
+ * Isme:  → Current infrastructure state store hoti hai
  *
  *
  * ---------------------------------------------------------

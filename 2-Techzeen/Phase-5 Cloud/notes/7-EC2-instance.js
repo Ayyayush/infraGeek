@@ -5,9 +5,8 @@
  * IAM Username    : aws-cli-user
  *
  * ------------------------------------------------------------
- * Why using IAM user instead of Root?
+ * ! Why using IAM user instead of Root?
  * ------------------------------------------------------------
- *
  * IAM user ke paas limited access hota hai (controlled permissions).
  * Root user ke paas full administrative control hota hai.
  *
@@ -18,7 +17,6 @@
  * ------------------------------------------------------------
  * What is EC2?
  * ------------------------------------------------------------
- *
  * EC2 = Elastic Compute Cloud
  * It is a virtual server in the cloud.
  *
@@ -32,29 +30,26 @@
  * ------------------------------------------------------------
  * Steps to Launch an EC2 Instance (Beginner Friendly)
  * ------------------------------------------------------------
- *
  * 1️⃣ Go to AWS Console
  * 2️⃣ Search for EC2
  * 3️⃣ Click "Launch Instance"
  *
+ * 
  * ------------------------------------------------------------
- * Step 1: Name and Tags
+ * ! Step 1: Name and Tags
  * ------------------------------------------------------------
- *
  * Name: my-web-server
- *
  * Tags ka use resource identification ke liye hota hai.
  *
  * ------------------------------------------------------------
- * Step 2: AMI (Important – Interview Question)
+ * ! Step 2: AMI (Important – Interview Question)
  * ------------------------------------------------------------
- *
  * AMI = Amazon Machine Image
- *
  * AMI ek template hota hai jisme:
  * - Operating System (Linux / Windows)
  * - Pre-installed software
  * - Configuration
+ * iske bina ec2 instance launch nhi ho sakta
  *
  * Example:
  * - Amazon Linux
@@ -63,10 +58,10 @@
  * Interview Line:
  * AMI is a pre-configured template used to launch EC2 instances.
  *
+ * 
  * ------------------------------------------------------------
- * Step 3: Instance Type
+ * ! Step 3: Instance Type
  * ------------------------------------------------------------
- *
  * Instance type decide karta hai:
  * - CPU
  * - RAM
@@ -75,12 +70,11 @@
  * Example:
  * t2.micro (Free tier eligible)
  *
+ * 
  * ------------------------------------------------------------
- * Step 4: Key Pair (Login)
+ * ! Step 4: Key Pair (Login)
  * ------------------------------------------------------------
- *
  * Key pair secure SSH login ke liye hota hai.
- *
  * Key Name: my-web-server-key
  *
  * Important:
@@ -88,9 +82,8 @@
  * - Agar lose ho gaya toh recover nahi hota
  *
  * ------------------------------------------------------------
- * Step 5: Network Settings
+ * ! Step 5: Network Settings
  * ------------------------------------------------------------
- *
  * - VPC select karte hain
  * - Subnet select karte hain
  * - Auto-assign public IP enable karte hain
@@ -103,18 +96,16 @@
  * Specific IP allow karna recommended hota hai
  * (0.0.0.0/0 sabko allow karta hai – security risk)
  *
+ * 
  * ------------------------------------------------------------
- * Step 6: Configure Storage
+ * ! Step 6: Configure Storage
  * ------------------------------------------------------------
- *
  * Default: 8 GB (General Purpose SSD)
- *
  * Requirement ke hisab se storage increase kar sakte hain.
  *
  * ------------------------------------------------------------
- * Step 7: Launch Instance
+ * ! Step 7: Launch Instance
  * ------------------------------------------------------------
- *
  * Launch pe click karte hi:
  * Instance "Running" state me aa jayega.
  *
@@ -122,9 +113,8 @@
  * Hamara virtual machine cloud par live run kar raha hai.
  *
  * ------------------------------------------------------------
- * IMPORTANT (Cost Saving Tip for Beginners)
+ * ! IMPORTANT (Cost Saving Tip for Beginners)
  * ------------------------------------------------------------
- *
  * EC2 instance jab tak "Running" state me hai,
  * tab tak billing chalu rehti hai.
  *

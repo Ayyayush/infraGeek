@@ -18,20 +18,16 @@
  *
  *
  * Simple Definition:
- *
  * A Jenkins Job is a set of instructions
  * that Jenkins executes automatically or manually.
  *
  *
  * Think of it as:
- *
  * → A To-Do Task for Jenkins
  *
  *
  * Example:
- *
  * "Compile this code and run tests"
- *
  * Jenkins will execute all these steps.
  *
  *
@@ -40,9 +36,7 @@
  * ---------------------------------------------------------
  * Every Jenkins Job has its own Workspace.
  *
- *
  * Workspace stores:
- *
  * → Source code
  * → Temporary files
  * → Build outputs
@@ -50,7 +44,6 @@
  *
  *
  * You can view it from:
- *
  * Job → Workspace
  *
  *
@@ -59,19 +52,14 @@
  * ---------------------------------------------------------
  *
  * 1) Manual Trigger
- *
  * User manually clicks:
- *
  * → Build Now
  *
  *
  * 2) Automatic Trigger
- *
  * Jenkins automatically starts the job.
  *
- *
  * Examples:
- *
  * → GitHub Push Trigger
  * → Webhook Trigger
  * → Cron Job Trigger
@@ -79,54 +67,37 @@
  *
  *
  * For now:
- *
  * We will use Manual Trigger.
  *
  *
  * ---------------------------------------------------------
  * ! CREATING FIRST FREESTYLE JOB
  * ---------------------------------------------------------
- *
  * STEP 1
- *
  * Open Jenkins Dashboard
  *
- *
  * STEP 2
- *
  * Click:
- *
  * → New Item
  *
- *
  * STEP 3
- *
  * Enter Job Name:
- *
  * hello-jenkins
  *
- *
  * STEP 4
- *
  * Select:
- *
  * → Freestyle Project
- *
- *
- * Click:
- *
- * → OK
+ * 
+ * Click: → OK
  *
  *
  * ---------------------------------------------------------
  * ! WHY FREESTYLE PROJECT?
  * ---------------------------------------------------------
- * Freestyle Project is the simplest type
- * of Jenkins Job.
+ * Freestyle Project is the simplest type  of Jenkins Job.
  *
  *
  * Later we will learn:
- *
  * → Pipeline
  * → Multibranch Pipeline
  * → Advanced CI/CD Jobs
@@ -136,10 +107,7 @@
  * ! DESCRIPTION
  * ---------------------------------------------------------
  * Add a description for the project.
- *
- *
  * Example:
- *
  * My First Jenkins Job
  *
  *
@@ -147,24 +115,16 @@
  * ! BUILD STEP
  * ---------------------------------------------------------
  * Scroll to:
- *
  * Build Section
  *
- *
  * Click:
- *
  * → Add Build Step
  *
- *
  * Select:
- *
  * → Execute Windows Batch Command
  *
- *
  * Example:
- *
  * echo Hello Jenkins
- *
  *
  * Save the Job.
  *
@@ -172,15 +132,11 @@
  * ---------------------------------------------------------
  * ! EXECUTING THE JOB
  * ---------------------------------------------------------
- *
  * Click:
- *
  * → Build Now
- *
  *
  * Since we are not using any trigger,
  * the build will start manually.
- *
  *
  * Jenkins executes the job.
  *
@@ -189,18 +145,15 @@
  * ! BUILD HISTORY
  * ---------------------------------------------------------
  * Left side:
- *
  * Build History
  *
  *
  * Example:
- *
  * Hello Jenkins
  * #1
  *
  *
  * Every execution creates:
- *
  * → Build #1
  * → Build #2
  * → Build #3
@@ -212,11 +165,8 @@
  * ! OUTPUT SCREEN
  * ---------------------------------------------------------
  * Example:
- *
  * Success
- *
  * #1
- *
  * Started by user Ayush Pandey
  *
  *

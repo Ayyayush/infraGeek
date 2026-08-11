@@ -1,0 +1,89 @@
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage('Build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t myapp:latest .'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'docker run -d myapp:latest'
+            }
+        }
+    }
+}
+
+
+
+
+pipeline {
+
+    // Jenkins can run this pipeline on any available agent
+    agent any
+
+    // Different stages/phases of our CI/CD pipeline
+    stages {
+
+        // =====================================================
+        // 1. BUILD STAGE
+        // =====================================================
+        stage('Build') {
+            steps {
+
+                // Install Node.js dependencies from package.json
+                sh 'npm install'
+            }
+        }
+
+        // =====================================================
+        // 2. DOCKER BUILD STAGE
+        // =====================================================
+        stage('Docker Build') {
+            steps {
+
+                // Build Docker image using the Dockerfile
+                // -t gives the image a name and tag
+                // git-together = image name
+                // latest = tag
+                // . = current directory / build context
+                sh 'docker build -t git-together:latest .'
+            }
+        }
+
+        // =====================================================
+        // 3. DEPLOY STAGE
+        // =====================================================
+        stage('Deploy') {
+            steps {
+
+                // Stop the old container if it is running
+                // || true prevents the pipeline from failing
+                // if the container does not exist
+                sh 'docker stop git-together || true'
+
+                // Remove the old container
+                // || true prevents failure if it does not exist
+                sh 'docker rm git-together || true'
+
+                // Start a new container using the newly built image
+                //
+                // -d              → run in background
+                // --name          → give container a name
+                // -p 7777:7777   → map host port 7777 to container port 7777
+                // git-together:latest → Docker image to run
+                sh 'docker run -d --name git-together -p 7777:7777 git-together:latest'
+            }
+        }
+    }
+}

@@ -13,23 +13,21 @@
  * It helps manage and control computer systems
  * from one central system.
  *
- * Iska use karke:
- *
+ * 
+ * ! Iska use karke:
  * → Ek hi machine (Control Node) se
  * → Multiple remote machines (Managed Nodes)
  *   ko manage kar sakte hain
  *
  *
- * Ye mainly use hota hai:
- *
- * → Software install karne ke liye
+ * ! Ye mainly use hota hai:
+ *  → Software install karne ke liye
  * → Server configuration manage karne ke liye
  * → Application deployment ke liye
  * → Infrastructure automation ke liye
  *
  *
  * Example:
- *
  * → Ek command se 50 servers pe nginx install kar sakte ho
  *
  *
@@ -174,13 +172,11 @@
  * ! CONTROL NODE VS MANAGED NODE
  * ---------------------------------------------------------
  * ! Control Node
- *
  * → Wo machine jahan Ansible installed hota hai
  * → Yahi machine baaki servers ko control karti hai
  *
  *
  * ! Managed Node
- *
  * → Remote machines/servers
  * → Jinhe Ansible manage karta hai
  *

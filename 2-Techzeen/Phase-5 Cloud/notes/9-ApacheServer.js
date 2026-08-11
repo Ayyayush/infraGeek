@@ -1,13 +1,11 @@
 /**
  * ! Installing Apache Web Server on EC2 Instance
- *
  * Ab hum EC2 instance par Apache web server install karenge
  * taaki hum apni static HTML website host kar saken.
  *
  * ------------------------------------------------------------
  * ! Pre-requisites
  * ------------------------------------------------------------
- *
  * - AWS me IAM user se login hona chahiye
  * - EC2 instance running state me hona chahiye
  * - SSH ke through EC2 instance par remote access hona chahiye
@@ -16,6 +14,7 @@
  * Jab EC2 use na ho, hamesha STOP kar dena
  * taaki unnecessary billing na lage.
  *
+ * 
  * ------------------------------------------------------------
  * ! Why Web Server is Required
  * ------------------------------------------------------------
@@ -32,10 +31,10 @@
  * - Static websites ke liye best
  * - Beginners ke liye easy
  *
+ * 
  * ------------------------------------------------------------
  * ! Update the System Packages
  * ------------------------------------------------------------
- *
  * Command:
  * sudo yum update -y
  *
@@ -49,18 +48,16 @@
  * ------------------------------------------------------------
  * ! Install Apache Web Server
  * ------------------------------------------------------------
- *
  * Apache ka package name hota hai: httpd
  *
  * Command:
  * sudo yum install httpd -y
- *
  * Ye Apache web server ko EC2 instance par install karta hai.
  *
+ * 
  * ------------------------------------------------------------
  * ! Start Apache Service
  * ------------------------------------------------------------
- *
  * Command:
  * sudo systemctl start httpd
  *
@@ -71,7 +68,6 @@
  * ------------------------------------------------------------
  * ! Enable Apache on Boot
  * ------------------------------------------------------------
- *
  * Command:
  * sudo systemctl enable httpd
  *
@@ -80,7 +76,6 @@
  * ------------------------------------------------------------
  * ! Verify Apache Status
  * ------------------------------------------------------------
- *
  * Command:
  * sudo systemctl status httpd
  *
@@ -90,15 +85,11 @@
  * ------------------------------------------------------------
  * ! Create HTML File (Website)
  * ------------------------------------------------------------
- *
  * Apache ka default web directory hota hai:
- *
  * /var/www/html
  *
  * Yahin par HTML files rakhni hoti hain.
- *
  * HTML file create karne ke liye:
- *
  * sudo nano /var/www/html/index.html
  *
  * nano:
@@ -116,9 +107,7 @@
  * ------------------------------------------------------------
  * ! Access Website in Browser
  * ------------------------------------------------------------
- *
  * Browser me open karo:
- *
  * http://<EC2-Public-IP>
  *
  * Example:
@@ -130,11 +119,11 @@
  * ------------------------------------------------------------
  * ! Important Check (If Site Not Opening)
  * ------------------------------------------------------------
- *
  * - EC2 running hona chahiye
  * - Apache running hona chahiye
  * - Port 80 inbound rule me allow hona chahiye (HTTP)
  *
+ * 
  * ------------------------------------------------------------
  * ! Interview Line
  * ------------------------------------------------------------

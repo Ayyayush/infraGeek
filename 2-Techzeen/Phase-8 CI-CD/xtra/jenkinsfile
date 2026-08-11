@@ -1,0 +1,124 @@
+// =====================================================
+// Basic Declarative Jenkins Pipeline
+// =====================================================
+pipeline {
+
+    // Execute Pipeline on any available Jenkins Agent.
+    agent any
+
+    stages {
+
+        // -------------------------
+        // Build Stage
+        // -------------------------
+        stage('Build') {
+            steps {
+
+                sh 'pwd'             // Display Current Working Directory
+                sh 'whoami'          // Display Current Logged-in User
+                sh 'node -v'         // Display Installed Node.js Version
+                sh 'npm install'     // Install Project Dependencies
+                sh 'npm run build'   // Build the Application
+
+            }
+        }
+
+        // -------------------------
+        // Test Stage
+        // -------------------------
+        stage('Test') {
+            steps {
+
+                sh 'npm test'        // Execute Automated Test Cases
+
+            }
+        }
+
+        // -------------------------
+        // Deploy Stage
+        // -------------------------
+        stage('Deploy') {
+            steps {
+
+                sh 'docker compose up -d' // Deploy Application using Docker Compose
+
+            }
+        }
+    }
+
+
+    // -------------------------
+    // Executes after Pipeline Completion.
+    // -------------------------
+    post {
+
+        success {
+            echo 'Pipeline Executed Successfully.'
+        }
+
+        failure {
+            echo 'Pipeline Failed.'
+        }
+
+        always {
+            echo 'Pipeline Finished.'
+        }
+    }
+}
+
+
+
+# =====================================================
+# Jenkins Plugin & Credential Commands
+# =====================================================
+
+# Restart Jenkins after Plugin Installation.
+sudo systemctl restart jenkins
+
+# Check Jenkins Service.
+sudo systemctl status jenkins
+
+# List Installed Plugins.
+jenkins-plugin-cli --list
+
+# Install Git Plugin.
+jenkins-plugin-cli --plugins git
+
+# Install Docker Plugin.
+jenkins-plugin-cli --plugins docker-plugin
+
+# Install Pipeline Plugin.
+jenkins-plugin-cli --plugins workflow-aggregator
+
+
+
+// =====================================================
+// Jenkins Pipeline : Build → Test → Deploy
+// =====================================================
+
+pipeline {                            // Start Pipeline
+
+    agent any                         // Execute on any Available Agent
+
+    stages {                          // Pipeline Stages
+
+        stage('Build') {              // Build Application
+            steps {
+                sh 'npm install'      // Install Dependencies
+                sh 'npm run build'    // Build Project
+            }
+        }
+
+        stage('Test') {               // Execute Test Cases
+            steps {
+                sh 'npm test'         // Run Automated Tests
+            }
+        }
+
+        stage('Deploy') {             // Deploy Application
+            steps {
+                sh 'docker compose up -d' // Deploy using Docker Compose
+            }
+        }
+    }
+}                                     // End Pipeline

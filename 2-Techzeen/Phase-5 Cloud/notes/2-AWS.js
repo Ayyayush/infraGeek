@@ -1,6 +1,6 @@
 /**
  * =========================================================
- * AWS (AMAZON WEB SERVICES)
+ * ! AWS (AMAZON WEB SERVICES)
  * =========================================================
  *
  * WHAT IS AWS?
@@ -22,7 +22,6 @@
  * ---------------------------------------------------------
  * CORE CONCEPT
  * ---------------------------------------------------------
- *
  * - On-demand access to IT resources
  * - No physical hardware required
  * - Pay-as-you-go pricing model
@@ -32,9 +31,8 @@
  *
  *
  * ---------------------------------------------------------
- * FEATURES OF AWS
+ * ! FEATURES OF AWS
  * ---------------------------------------------------------
- *
  * 1) SCALABILITY
  *    - Resources ko easily scale up ya scale down kar sakte ho
  *    - Traffic badhne par auto-scaling possible hai
@@ -63,9 +61,8 @@
  *
  *
  * ---------------------------------------------------------
- * COMMON AWS SERVICES
+ * ! COMMON AWS SERVICES
  * ---------------------------------------------------------
- *
  * 1) EC2 (Elastic Compute Cloud)
  *    - Virtual servers in the cloud
  *    - Applications aur backend run karne ke liye
@@ -92,9 +89,8 @@
  *
  *
  * ---------------------------------------------------------
- * IMPORTANT AWS TERMINOLOGIES
+ * ! IMPORTANT AWS TERMINOLOGIES
  * ---------------------------------------------------------
- *
  * 1) REGION
  *    - AWS ka geographical area
  *    - Example: Mumbai (ap-south-1), US-East-1
@@ -114,7 +110,6 @@
  * ---------------------------------------------------------
  * INTERVIEW FRIENDLY SUMMARY
  * ---------------------------------------------------------
- *
  * AWS is a cloud computing platform that provides
  * scalable, secure, and cost-effective IT resources
  * over the internet using a pay-as-you-go model.

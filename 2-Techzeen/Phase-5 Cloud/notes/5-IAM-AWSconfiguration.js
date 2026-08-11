@@ -1,6 +1,5 @@
 /**
- * What is IAM (Identity and Access Management)
- *
+ * ! What is IAM (Identity and Access Management)
  * IAM ek AWS service hai jiska use karke hum
  * AWS account ke users, roles aur permissions ko manage kar sakte hain.
  *
@@ -27,10 +26,11 @@
  * Important Point:
  * IAM globally available service hai (region-specific nahi hoti)
  *
+ * 
+ * 
  * ---------------------------------------------------------
- * Steps to Configure IAM User (Hinglish)
+ * ! Steps to Configure IAM User (Hinglish)
  * ---------------------------------------------------------
- *
  * 1. Login to AWS Console using Root User
  * 2. Search "IAM" in AWS services
  * 3. Go to IAM Dashboard

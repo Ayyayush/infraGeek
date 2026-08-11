@@ -86,9 +86,7 @@
  * 
  * ! Install Ansible
  * Jab system update complete ho jaye tab Ansible install karo.
- * 
  * Command:
- * 
  * sudo apt install ansible -y
  * 
  * Ye command Ansible ko Ubuntu environment me install kar degi.

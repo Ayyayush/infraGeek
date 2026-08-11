@@ -1,0 +1,80 @@
+# ===============================================
+# Docker Compose : Node.js + MySQL
+# ===============================================
+
+version: "3.9"                    # Docker Compose Version
+
+services:                         # Define all Services
+
+  app:                            # Node.js Service
+    build: .                      # Build Image from Dockerfile
+    container_name: node-app      # Custom Container Name
+    restart: always               # Restart if Container Stops
+
+    ports:                        # Port Mapping
+      - "3000:3000"               # Host:Container
+
+    environment:                  # Environment Variables
+      DB_HOST: mysql              # MySQL Service Name
+      DB_USER: root               # Database Username
+      DB_PASSWORD: root123        # Database Password
+      DB_NAME: devopsdb           # Database Name
+
+    depends_on:                   # Start MySQL First
+      - mysql
+
+    networks:                     # Connect to Network
+      - devops-network
+
+  mysql:                          # MySQL Service
+    image: mysql:8.0              # Official MySQL Image
+    container_name: mysql-db      # Custom Container Name
+    restart: always               # Auto Restart
+
+    environment:                  # MySQL Variables
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: devopsdb
+
+    ports:                        # Expose MySQL Port
+      - "3306:3306"
+
+    volumes:                      # Persistent Storage
+      - mysql-data:/var/lib/mysql
+
+    networks:                     # Same Network as App
+      - devops-network
+
+volumes:                          # Named Volumes
+  mysql-data:                     # Store Database Data
+
+networks:                         # Custom Networks
+  devops-network:                 # App ↔ MySQL Communication
+
+
+# =====================================================
+# Kubernetes Basic Commands
+# =====================================================
+
+# Check kubectl Installation.
+kubectl version --client
+
+# Check Kubernetes Cluster Information.
+kubectl cluster-info
+
+# Display Cluster Nodes.
+kubectl get nodes
+
+# Display All Pods.
+kubectl get pods -A
+
+# Display Kubernetes Version.
+kubectl version
+
+# Display Current Context.
+kubectl config current-context
+
+# Display Available Contexts.
+kubectl config get-contexts
+
+# Display All Namespaces.
+kubectl get namespaces
